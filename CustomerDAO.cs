@@ -154,11 +154,11 @@ namespace poco
 
             List<Customer> Customers = GetAllCustomers();
 
-            var qCustomer = (from c in Customers
+            var qCustomer = from c in Customers
                             where c.PHnumber == PHnumber
-                            select c).ToList();
+                            select c;
 
-            //var mCustomer = Customers.Where((c => c.PHnumber == PHnumber).FirstOrDefault().ToList());
+            //var mCustomer = Customers.Where(c => c.PHnumber == PHnumber).FirstOrDefault();
 
             return qCustomer.FirstOrDefault();
         }
